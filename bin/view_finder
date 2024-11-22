@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require "view_finder"
+
+if ARGV.empty?
+  puts "Usage: view_finder <template_path_or_route>"
+  exit 1
+end
+
+view_path_or_route = ARGV[0]
+results = ViewFinder.find(view_path_or_route)
+
+if results.empty?
+  puts "No templates found for #{view_path_or_route}"
+else
+  puts results.join("\n")
+end
+
